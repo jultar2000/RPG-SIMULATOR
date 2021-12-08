@@ -1,0 +1,40 @@
+###
+
+GET http://localhost:8081/api/users
+
+###
+
+GET http://localhost:8081/api/users/adam
+
+###
+
+POST http://localhost:8081/api/users
+Content-Type: application/json
+
+{
+  "login": "norman",
+  "name": "Norman",
+  "surname": "Cooler",
+  "dateOfBirth": "2000-12-04",
+  "password": "Kdnam342kf1jf",
+  "email": "norman.cooler@gmail.com"
+}
+
+###
+
+PUT http://localhost:8081/api/users/adam
+Content-Type: application/json
+
+{
+  "name": "Mathew",
+  "surname": "Parker",
+  "dateOfBirth": "1994-07-16",
+  "password": "fwre432g54w",
+  "email": "mathew.parker@gmail.com"
+}
+
+###
+
+DELETE http://localhost:8081/api/users/adam
+
+###

@@ -1,0 +1,56 @@
+GET http://localhost:8080/api/champions
+
+###
+
+GET http://localhost:8080/api/champions/2
+
+###
+
+GET http://localhost:8080/api/users
+
+###
+
+GET http://localhost:8080/api/users/adam
+
+###
+
+GET http://localhost:8080/api/users/adam/characters
+
+###
+
+GET http://localhost:8080/api/users/adam/characters/2
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "login": "norman",
+  "name": "Norman",
+  "surname": "Cooler",
+  "dateOfBirth": "2000-12-04",
+  "password": "Kdnam342kf1jf",
+  "email": "norman.cooler@gmail.com"
+}
+
+###
+
+POST http://localhost:8080/api/users/adam/champions
+Content-Type: application/json
+
+{
+  "name": "rob",
+  "backstory": "noone",
+  "manaPoints": "500",
+  "healthPoints": "700",
+  "strength": "6",
+  "inteligence": "9",
+  "race": "troll"
+}
+
+###
+
+DELETE http://localhost:8080/api/users/adam
+
+###
