@@ -15,21 +15,19 @@ public class SpringRestGatewayApplication {
     }
 
     @Bean
-    public RouteLocator customRouteLocator(@Value("${champions.url}") String championsUrl,
-                                           @Value("${users.url}") String usersUrl,
-                                           RouteLocatorBuilder builder) {
+    public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder
                 .routes()
                 .route("users", r -> r
                         .host("localhost:8080")
                         .and()
                         .path("/api/users/{login}", "/api/users")
-                        .uri(usersUrl))
+                        .uri("http://localhost:8081"))
                 .route("characters", r -> r
                         .host("localhost:8080")
                         .and()
                         .path("/api/champions", "/api/champions/**", "/api/users/{login}/champions", "/api/users/{login}/champions/**")
-                        .uri(championsUrl))
+                        .uri("http://localhost:8082"))
                 .build();
     }
 }
