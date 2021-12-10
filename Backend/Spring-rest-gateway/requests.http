@@ -2,7 +2,7 @@ GET http://localhost:8080/api/champions
 
 ###
 
-GET http://localhost:8080/api/champions/2
+GET http://localhost:8080/api/champions/1
 
 ###
 

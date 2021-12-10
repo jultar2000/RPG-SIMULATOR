@@ -35,6 +35,21 @@ Content-Type: application/json
 
 ###
 
+PUT http://localhost:8080/api/users/adam/champions/2
+Content-Type: application/json
+
+{
+"name": "someone",
+"backstory": "none",
+"manaPoints": "23",
+"healthPoints": "23",
+"strength": "23",
+"inteligence": "23",
+"race": null
+}
+
+###
+
 DELETE http://localhost:8081/api/users/adam
 
 ###

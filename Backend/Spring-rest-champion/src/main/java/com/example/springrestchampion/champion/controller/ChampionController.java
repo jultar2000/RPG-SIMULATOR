@@ -39,7 +39,7 @@ public class ChampionController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<GetChampionResponse> getChampion(@PathVariable("id") long id) {
+    public ResponseEntity<GetChampionResponse> getChampion(@PathVariable("id") Long id) {
         return championService.find(id)
                 .map(champion -> ResponseEntity.ok(GetChampionResponse.entityToDtoMapper(champion)))
                 .orElseGet(() -> ResponseEntity.notFound().build());
