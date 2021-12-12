@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Ubuntu+Mono&display=swap');
+
+body {
+    font-family: Georgia serif;
+    font-size: larger;
+}
+
+.header {
+    text-align: center; 
+    background: #257570;
+    color: #060606;
+    font-size: larger;
+}
+
+.navigation-buttons {
+    flex-direction: row;
+}
+
+.navigation-buttons li {
+    display: inline-block;
+    background-color: #257570;
+    padding: 10px 140px;
+}
+
+.navigation-buttons a {
+    display: inline-block;
+    font-size: larger;
+    font-weight: bold;
+    color: bisque;
+}
+
+.main-section {
+    padding: 10px;
+}
+
+
+
+
+
