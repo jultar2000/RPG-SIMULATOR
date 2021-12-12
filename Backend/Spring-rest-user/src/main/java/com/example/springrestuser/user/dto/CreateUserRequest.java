@@ -1,6 +1,7 @@
 package com.example.springrestuser.user.dto;
 
 import com.example.springrestuser.user.entity.User;
+import com.example.springrestuser.user.security.Sha256;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -32,7 +33,7 @@ public class CreateUserRequest {
                 .name(request.getName())
                 .surname(request.getSurname())
                 .dateOfBirth(request.getDateOfBirth())
-                .password(request.getPassword())
+                .password(Sha256.hash(request.getPassword()))
                 .email(request.getEmail())
                 .build();
     }

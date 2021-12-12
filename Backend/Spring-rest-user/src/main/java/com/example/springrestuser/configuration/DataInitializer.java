@@ -1,6 +1,7 @@
 package com.example.springrestuser.configuration;
 
 import com.example.springrestuser.user.entity.User;
+import com.example.springrestuser.user.security.Sha256;
 import com.example.springrestuser.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -27,6 +28,7 @@ public class DataInitializer {
                 .surname("Smith")
                 .dateOfBirth(LocalDate.of(2001, 2, 9))
                 .email("adam.smith@gmail.com")
+                .password(Sha256.hash("adamadam"))
                 .build();
 
         User mark = User.builder()
@@ -35,6 +37,7 @@ public class DataInitializer {
                 .surname("Hauer")
                 .dateOfBirth(LocalDate.of(1998, 6, 15))
                 .email("mark.hauer@gmail.com")
+                .password(Sha256.hash("markmark"))
                 .build();
 
         User elizabeth = User.builder()
@@ -43,6 +46,7 @@ public class DataInitializer {
                 .surname("Manner")
                 .dateOfBirth(LocalDate.of(1994, 4, 21))
                 .email("elizabeth.manner@gmail.com")
+                .password(Sha256.hash("elizaeliza"))
                 .build();
 
         User alex = User.builder()
@@ -51,6 +55,7 @@ public class DataInitializer {
                 .surname("Madess")
                 .dateOfBirth(LocalDate.of(2000, 12, 12))
                 .email("alex.madess@gmail.com")
+                .password(Sha256.hash("alexalex"))
                 .build();
 
         userService.add(adam);
