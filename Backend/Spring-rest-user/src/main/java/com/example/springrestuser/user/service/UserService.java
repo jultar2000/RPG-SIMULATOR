@@ -38,6 +38,7 @@ public class UserService {
     @Transactional
     public void update(User user) {
         userRepository.save(user);
+        userActionRepository.add(user);
     }
 
     public Optional<User> find(String login) {

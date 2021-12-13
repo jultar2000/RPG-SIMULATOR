@@ -1,5 +1,5 @@
 {
-"scripts": {
+  "scripts": {
     "dev": "http-server -p 8083 -c-1"
   },
   "devDependencies": {
