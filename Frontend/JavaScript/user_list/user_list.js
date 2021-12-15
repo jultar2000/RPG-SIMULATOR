@@ -1,11 +1,11 @@
-import {createLinkField, createButtonField, createTextField} from '../js/dom_utils.js';
-import {getBackendUrl} from '../js/configuration.js';
+import {getBackendUrl} from '../js/configuration';
+import { createButtonField, createLinkField, createTextField } from '../js/utils.js';
 
 window.addEventListener('load', () => {
-    displayUsers();
+    fetchAndDisplayUsers();
 });
 
-function displayUsers() {
+function fetchAndDisplayUsers() {
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
@@ -26,9 +26,9 @@ function displayUsers(users) {
 
 function createTableRow(user) {
     let tr = document.createElement('tr');
-    tr.appendChild(createTextCell(user));
-    tr.appendChild(createLinkCell('view', '../user_view/user_view.html?user=' + user));
-    tr.appendChild(createButtonCell('delete', () => deleteUser(user)));
+    tr.appendChild(createTextField(user));
+    tr.appendChild(createLinkField('view', '../user_view/user_view.html?user=' + user));
+    tr.appendChild(createButtonField('delete', () => deleteUser(user)));
     return tr;
 }
 
