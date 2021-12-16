@@ -27,7 +27,7 @@ public class ChampionServiceTest {
     ChampionService underTest;
 
     @Test
-    void canAddChampionTest() {
+    void shouldAddChampion() {
         User user = Mockito.mock(User.class);
         Race race = Mockito.mock(Race.class);
 
@@ -56,7 +56,7 @@ public class ChampionServiceTest {
     }
 
     @Test
-    void canUpdateChampionTest() {
+    void shouldUpdateChampion() {
         User user = Mockito.mock(User.class);
         Race race = Mockito.mock(Race.class);
 
@@ -85,39 +85,37 @@ public class ChampionServiceTest {
     }
 
     @Test
-    void canDeleteChampionTest() {
+    void shouldDeleteChampion() {
         long id = 1;
         underTest.delete(id);
         verify(championRepository).deleteById(id);
     }
 
     @Test
-    void canFindChampionById() {
+    void shouldFindChampionById() {
         long id = 1;
         underTest.find(id);
         verify(championRepository).findById(id);
     }
 
     @Test
-    void canFindChampionByIdAndUser() {
+    void shouldFindChampionByIdAndUser() {
         User user = Mockito.mock(User.class);
         long id = 1;
-        underTest.find(id,user);
+        underTest.find(id, user);
         verify(championRepository).findByIdAndUser(id, user);
     }
 
     @Test
-    void canFindAllChampions() {
+    void shouldFindAllChampions() {
         underTest.findAll();
         verify(championRepository).findAll();
     }
 
     @Test
-    void canFindAllChampionsOwnedByUser() {
+    void shouldFindAllChampionsOwnedByUser() {
         User user = Mockito.mock(User.class);
         underTest.findAll(user);
         verify(championRepository).findAllByUser(user);
     }
-
-
 }

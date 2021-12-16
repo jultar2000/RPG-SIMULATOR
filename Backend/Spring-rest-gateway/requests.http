@@ -14,11 +14,11 @@ GET http://localhost:8080/api/users/adam
 
 ###
 
-GET http://localhost:8080/api/users/adam/characters
+GET http://localhost:8080/api/users/alex/champions
 
 ###
 
-GET http://localhost:8080/api/users/adam/characters/2
+GET http://localhost:8080/api/users/adam/champions/2
 
 ###
 
@@ -32,6 +32,31 @@ Content-Type: application/json
   "dateOfBirth": "2000-12-04",
   "password": "Kdnam342kf1jf",
   "email": "norman.cooler@gmail.com"
+}
+
+###
+
+POST http://localhost:8080/api/champions
+Content-Type: application/json
+
+{
+  "name": "bardon",
+  "backstory": "Teenager from big city where he needed to get by using his musical abilities",
+  "manaPoints": "200",
+  "healthPoints": "900",
+  "strength": "5",
+  "inteligence": "14",
+  "race": "bard"
+}
+
+###
+
+POST http://localhost:8080/api/races
+Content-Type: application/json
+
+{
+"name": "ork",
+"description": "Big angry creatures who are destroying everything on their way"
 }
 
 ###
@@ -51,6 +76,82 @@ Content-Type: application/json
 
 ###
 
+PUT http://localhost:8080/api/users/adam
+Content-Type: application/json
+
+{
+"name": "Mathew",
+"surname": "Parker",
+"dateOfBirth": "1994-07-16",
+"password": "fwre432g54w",
+"email": "mathew.parker@gmail.com"
+}
+
+###
+
+PUT http://localhost:8080/api/users/adam/champions/2
+Content-Type: application/json
+
+{
+  "name": "someone",
+  "backstory": "none",
+  "manaPoints": "23",
+  "healthPoints": "23",
+  "strength": "23",
+  "inteligence": "23",
+  "race": null
+}
+
+###
+
+PUT http://localhost:8080/api/users/adam/champions/2
+Content-Type: application/json
+
+{
+  "name": "someone",
+  "backstory": "none",
+  "manaPoints": "23",
+  "healthPoints": "23",
+  "strength": "23",
+  "inteligence": "23",
+  "race": null
+}
+
+###
+
+PUT http://localhost:8080/api/champions/2
+Content-Type: application/json
+
+{
+  "name": "Herold",
+  "backstory": "Powerfull herold",
+  "experience": 1000
+}
+
+###
+
+PUT http://localhost:8080/api/races/bard
+Content-Type: application/json
+
+{
+  "description": "no one"
+}
+
+###
+
 DELETE http://localhost:8080/api/users/adam
 
 ###
+
+DELETE http://localhost:8080/api/users/adam/champions/2
+
+###
+
+DELETE http://localhost:8080/api/champions/2
+
+###
+
+DELETE http://localhost:8080/api/races/sorcerer
+
+###
+

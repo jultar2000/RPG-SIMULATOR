@@ -30,6 +30,5 @@ export function getParameterByName(name) {
 
 export function setTextNode(id, text) {
     let element = document.getElementById(id);
-    clearElementChildren(element);
     element.appendChild(document.createTextNode(text));
 }

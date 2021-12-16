@@ -30,7 +30,7 @@ public class UserServiceTest {
     private UserService underTest;
 
     @Test
-    void canAddUserTest() {
+    void shouldAddUser() {
         User user = User.builder()
                 .login("user")
                 .name("User")
@@ -51,7 +51,7 @@ public class UserServiceTest {
     }
 
     @Test
-    void canDeleteUserTest() {
+    void shouldDeleteUser() {
         User user = User.builder()
                 .login("user")
                 .name("User")
@@ -66,7 +66,7 @@ public class UserServiceTest {
     }
 
     @Test
-    void canUpdateUserTest() {
+    void ShouldUpdateUser() {
         User user = User.builder()
                 .login("user")
                 .name("User")
@@ -87,13 +87,13 @@ public class UserServiceTest {
     }
 
     @Test
-    void canFindAllUsers() {
+    void shouldFindAllUsers() {
         underTest.findAll();
         verify(userRepository).findAll();
     }
 
     @Test
-    void canFindUserByLoginTest() {
+    void shouldFindUserByLogin() {
         User user = User.builder()
                 .login("user")
                 .name("User")

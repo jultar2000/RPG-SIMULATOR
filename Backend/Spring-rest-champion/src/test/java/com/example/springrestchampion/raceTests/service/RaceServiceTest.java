@@ -23,7 +23,7 @@ public class RaceServiceTest {
     RaceService underTest;
 
     @Test
-    void canAddChampionTest() {
+    void shouldAddRace() {
         Race race = Race.builder()
                 .name("race")
                 .description("nothing")
@@ -40,7 +40,7 @@ public class RaceServiceTest {
     }
 
     @Test
-    void canUpdateChampionTest() {
+    void shouldUpdateRace() {
         Race race = Race.builder()
                 .name("race")
                 .description("nothing")
@@ -57,21 +57,21 @@ public class RaceServiceTest {
     }
 
     @Test
-    void canDeleteRaceTest() {
+    void shouldDeleteRace() {
         String id = "race";
         underTest.delete(id);
         verify(raceRepository).deleteById(id);
     }
 
     @Test
-    void canFindRaceById() {
+    void shouldFindRaceById() {
         String id = "race";
         underTest.find(id);
         verify(raceRepository).findById(id);
     }
 
     @Test
-    void canFindAllRaces() {
+    void shouldFindAllRaces() {
         underTest.findAll();
         verify(raceRepository).findAll();
     }

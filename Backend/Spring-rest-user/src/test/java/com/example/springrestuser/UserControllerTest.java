@@ -15,8 +15,11 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import java.time.LocalDate;
 
+import java.time.LocalDate;
+import java.util.Optional;
+
+import static org.mockito.Mockito.doReturn;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
@@ -33,30 +36,48 @@ public class UserControllerTest {
     private UserService userService;
 
     @Test
-    public void canGetListOfUsersTest() throws Exception {
-        String uri = "/api/users";
-        mvc.perform(MockMvcRequestBuilders.get(uri))
+    public void shouldGetListOfUsers() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/api/users"))
                 .andExpect(status().isOk());
     }
 
     @Test
-    @Disabled
-    public void canGetSingleUserTest() throws Exception {
+    public void shouldGetUserIfFound() throws Exception {
+        String login = "user";
         User user = User.builder()
-                .login("user")
+                .login(login)
                 .name("User")
                 .surname("uuser")
                 .dateOfBirth(LocalDate.of(2000, 12, 4))
                 .password(Sha256.hash("useruser"))
                 .email("user@gmail.com")
                 .build();
+        doReturn(Optional.of(user)).when(this.userService).find(login);
 
-        mvc.perform(MockMvcRequestBuilders.get("/api/users/{login}", "adam"))
+        mvc.perform(MockMvcRequestBuilders.get("/api/users/{login}", login))
                 .andExpect(status().isOk());
     }
 
     @Test
-    public void canAddUserTest() throws Exception {
+    public void shouldNotGetUserIfNotFound() throws Exception {
+        String login = "user";
+        User user = User.builder()
+                .login(login)
+                .name("User")
+                .surname("uuser")
+                .dateOfBirth(LocalDate.of(2000, 12, 4))
+                .password(Sha256.hash("useruser"))
+                .email("user@gmail.com")
+                .build();
+        doReturn(Optional.empty()).when(this.userService).find(login);
+
+        mvc.perform(MockMvcRequestBuilders.get("/api/users/{login}", login))
+                .andExpect(status().isNotFound());
+    }
+
+
+    @Test
+    public void shouldAddUser() throws Exception {
         User user = User.builder()
                 .login("user")
                 .name("User")
@@ -67,51 +88,83 @@ public class UserControllerTest {
                 .build();
 
         mvc.perform(MockMvcRequestBuilders.post("/api/users")
-                .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .content(objectMapper.writeValueAsString(user)))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .content(objectMapper.writeValueAsString(user)))
                 .andExpect(status().isCreated());
     }
 
-
     @Test
-    @Disabled
-    public void canDeleteUserTest() throws Exception {
-
+    public void shouldDeleteUserIfFound() throws Exception {
+        // Arrange
+        String login = "user";
         User user = User.builder()
-                .login("user")
+                .login(login)
                 .name("User")
                 .surname("uuser")
                 .dateOfBirth(LocalDate.of(2000, 12, 4))
                 .password(Sha256.hash("useruser"))
                 .email("user@gmail.com")
                 .build();
+        doReturn(Optional.of(user)).when(this.userService).find(login);
 
-        userService.add(user);
-
-        mvc.perform(MockMvcRequestBuilders.delete("/api/users/{login}","user"))
+        // Act & Assert
+        mvc.perform(MockMvcRequestBuilders.delete("/api/users/{login}", login))
                 .andExpect(status().isAccepted());
     }
 
     @Test
-    @Disabled
-    public void canPutUserTest() throws Exception {
+    public void shouldNotDeleteUserIfNotFound() throws Exception {
+        // Arrange
+        String login = "user";
+        doReturn(Optional.empty()).when(this.userService).find(login);
 
+        // Act & Assert
+        mvc.perform(MockMvcRequestBuilders.delete("/api/users/{login}", login))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void shouldUpdateUserIfFound() throws Exception {
+        // Arrange
+        String login = "user";
         User user = User.builder()
-                .login("user")
+                .login(login)
                 .name("User")
                 .surname("uuser")
                 .dateOfBirth(LocalDate.of(2000, 12, 4))
                 .password(Sha256.hash("useruser"))
                 .email("user@gmail.com")
                 .build();
+        doReturn(Optional.of(user)).when(this.userService).find(login);
+        user.setName("updated_user");
 
-        mvc.perform(MockMvcRequestBuilders.post("/api/users")
-                .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .content(objectMapper.writeValueAsString(user)));
-
-        user.setName("new_User");
-        mvc.perform(MockMvcRequestBuilders.put("/api/users/{login}","user"))
+        // Act & Assert
+        mvc.perform(MockMvcRequestBuilders.put("/api/users/{login}", login)
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .content(objectMapper.writeValueAsString(user)))
                 .andExpect(status().isAccepted());
+    }
+
+
+    @Test
+    public void shouldNotUpdateUserIfNotFound() throws Exception {
+        // Arrange
+        String login = "user";
+        User user = User.builder()
+                .login(login)
+                .name("User")
+                .surname("uuser")
+                .dateOfBirth(LocalDate.of(2000, 12, 4))
+                .password(Sha256.hash("useruser"))
+                .email("user@gmail.com")
+                .build();
+        doReturn(Optional.empty()).when(this.userService).find(login);
+        user.setName("updated_user");
+
+        // Act & Assert
+        mvc.perform(MockMvcRequestBuilders.put("/api/users/{login}", login)
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .content(objectMapper.writeValueAsString(user)))
+                .andExpect(status().isNotFound());
     }
 }
-

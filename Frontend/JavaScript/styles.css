@@ -3,7 +3,11 @@
 body {
     font-family: Georgia serif;
     font-size: larger;
-    background-color: #257570;
+    background: #074663;
+}
+
+.main-container {
+    background: #145c7e;
 }
 
 .header {
