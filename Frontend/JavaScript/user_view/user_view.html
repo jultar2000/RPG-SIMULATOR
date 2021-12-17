@@ -2,9 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>UserView</title>
+    <link rel="stylesheet" href="../styles.css"/>
+    <script src="../script.js" defer="defer"></script>
+    <script type="module" src="user_view.js" defer="defer"></script>
 </head>
 <body>
 
+<div class ="main-container">
+    <header class="header">
+        <h1>User Details</h1>
+    </header>
+    <nav class="navigation-buttons">
+        <ul>
+            <li><a href="../home.html">Home</a> </li>
+            <li><a href="../user_list/user_list.html">Users</a></li>
+            <li><a href="../champion_list/champion_list.html">Champions</a></li>
+            <li><a href="../race_list/race_list.html">Races</a></li>
+        </ul>
+    </nav>
+
+    <section class="main-section">
+        <article class="text--justified">
+            <header><h2 id="username:">User Details:</h2></header>
+            <section>
+                <div class="details-grid">
+                    <label for="name">Name:</label><span id="name">name</span>
+                    <label for="surname">Surname:</label><span id="surname">surname</span>
+                </div>
+            </section>
+            <section>
+                <h3>Champions</h3>
+                <table class="data-table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Details</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    </tbody>
+                </table>
+            </section>
+        </article>
+    </section>
+</div>
 </body>
 </html>

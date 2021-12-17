@@ -1,3 +1,11 @@
+GET http://localhost:8082/api/races
+
+###
+
+GET http://localhost:8082/api/races/bard
+
+###
+
 GET http://localhost:8080/api/champions
 
 ###

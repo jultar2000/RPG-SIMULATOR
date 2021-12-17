@@ -31,7 +31,8 @@ public class SpringRestGatewayApplication {
                 .route("characters", r -> r
                         .host("localhost:8080")
                         .and()
-                        .path("/api/champions", "/api/champions/**", "/api/users/{login}/champions", "/api/users/{login}/champions/**")
+                        .path("/api/champions", "/api/champions/**", "/api/users/{login}/champions", "/api/users/{login}/champions/**",
+                                "/api/races","/api/races/**")
                         .uri("http://localhost:8082"))
                 .build();
     }

@@ -1,5 +1,11 @@
 
- export function createButtonField(text, action) {
+export function clearElementChildren(element) {
+    while (element.firstChild) {
+        element.removeChild(element.firstChild);
+    }
+}
+
+export function createButtonField(text, action) {
     const td = document.createElement('td');
     const button = document.createElement('button');
     button.appendChild(document.createTextNode(text));
@@ -30,5 +36,6 @@ export function getParameterByName(name) {
 
 export function setTextNode(id, text) {
     let element = document.getElementById(id);
+    clearElementChildren(element);
     element.appendChild(document.createTextNode(text));
 }

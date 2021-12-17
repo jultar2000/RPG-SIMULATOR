@@ -1,4 +1,4 @@
-import {createButtonField, createLinkField, createTextField } from '../js/utils.js';
+import {createButtonField, createLinkField, createTextField, clearElementChildren} from '../js/utils.js';
 
 window.addEventListener('load', () => {
     fetchAndDisplayUsers();
@@ -11,20 +11,21 @@ function fetchAndDisplayUsers() {
             displayUsers(JSON.parse(this.responseText))
         }
     };
-    xhttp.open("GET",'http://localhost:8080/api/users', true);
+    xhttp.open("GET",'http://localhost:8080/api/users/', true);
     xhttp.send();
 }
 
 function displayUsers(users) {
     let tableBody = document.getElementById('tableBody');
-    users.forEach(user => {
+    clearElementChildren(tableBody);
+    users.users.forEach(user => {
         tableBody.appendChild(createTableRow(user));
     })
 }
 
 function createTableRow(user) {
     let tr = document.createElement('tr');
-    tr.appendChild(createTextField(user));
+    tr.appendChild(createTextField(user.login));
     tr.appendChild(createLinkField('view', '../user_view/user_view.html?user=' + user));
     tr.appendChild(createButtonField('delete', () => deleteUser(user)));
     return tr;
@@ -37,6 +38,6 @@ function deleteUser(user) {
             fetchAndDisplayUsers();
         }
     };
-    xhttp.open("DELETE",'http://localhost:8080/api/users/' + user, true);
+    xhttp.open("DELETE",'http://localhost:8080/api/users/' + user.login, true);
     xhttp.send();
 }
