@@ -80,7 +80,7 @@ public class UserChampionController {
         if (user.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        Optional<Champion> champion = championService.find(id);
+        Optional<Champion> champion = championService.find(id, user.get());
         if (champion.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
@@ -96,7 +96,7 @@ public class UserChampionController {
         if (user.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        Optional<Champion> champion = championService.find(id);
+        Optional<Champion> champion = championService.find(id, user.get());
         if (champion.isEmpty()) {
             return ResponseEntity.notFound().build();
         }

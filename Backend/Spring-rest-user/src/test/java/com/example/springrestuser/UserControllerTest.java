@@ -61,20 +61,11 @@ public class UserControllerTest {
     @Test
     public void shouldNotGetUserIfNotFound() throws Exception {
         String login = "user";
-        User user = User.builder()
-                .login(login)
-                .name("User")
-                .surname("uuser")
-                .dateOfBirth(LocalDate.of(2000, 12, 4))
-                .password(Sha256.hash("useruser"))
-                .email("user@gmail.com")
-                .build();
         doReturn(Optional.empty()).when(this.userService).find(login);
 
         mvc.perform(MockMvcRequestBuilders.get("/api/users/{login}", login))
                 .andExpect(status().isNotFound());
     }
-
 
     @Test
     public void shouldAddUser() throws Exception {
@@ -91,6 +82,50 @@ public class UserControllerTest {
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .content(objectMapper.writeValueAsString(user)))
                 .andExpect(status().isCreated());
+    }
+
+    @Test
+    public void shouldUpdateUserIfFound() throws Exception {
+        // Arrange
+        String login = "user";
+        User user = User.builder()
+                .login(login)
+                .name("User")
+                .surname("uuser")
+                .dateOfBirth(LocalDate.of(2000, 12, 4))
+                .password(Sha256.hash("useruser"))
+                .email("user@gmail.com")
+                .build();
+        doReturn(Optional.of(user)).when(this.userService).find(login);
+        user.setName("updated_user");
+
+        // Act & Assert
+        mvc.perform(MockMvcRequestBuilders.put("/api/users/{login}", login)
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .content(objectMapper.writeValueAsString(user)))
+                .andExpect(status().isAccepted());
+    }
+
+    @Test
+    public void shouldNotUpdateUserIfNotFound() throws Exception {
+        // Arrange
+        String login = "user";
+        User user = User.builder()
+                .login(login)
+                .name("User")
+                .surname("uuser")
+                .dateOfBirth(LocalDate.of(2000, 12, 4))
+                .password(Sha256.hash("useruser"))
+                .email("user@gmail.com")
+                .build();
+        doReturn(Optional.empty()).when(this.userService).find(login);
+        user.setName("updated_user");
+
+        // Act & Assert
+        mvc.perform(MockMvcRequestBuilders.put("/api/users/{login}", login)
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .content(objectMapper.writeValueAsString(user)))
+                .andExpect(status().isNotFound());
     }
 
     @Test
@@ -120,51 +155,6 @@ public class UserControllerTest {
 
         // Act & Assert
         mvc.perform(MockMvcRequestBuilders.delete("/api/users/{login}", login))
-                .andExpect(status().isNotFound());
-    }
-
-    @Test
-    public void shouldUpdateUserIfFound() throws Exception {
-        // Arrange
-        String login = "user";
-        User user = User.builder()
-                .login(login)
-                .name("User")
-                .surname("uuser")
-                .dateOfBirth(LocalDate.of(2000, 12, 4))
-                .password(Sha256.hash("useruser"))
-                .email("user@gmail.com")
-                .build();
-        doReturn(Optional.of(user)).when(this.userService).find(login);
-        user.setName("updated_user");
-
-        // Act & Assert
-        mvc.perform(MockMvcRequestBuilders.put("/api/users/{login}", login)
-                        .contentType(MediaType.APPLICATION_JSON_VALUE)
-                        .content(objectMapper.writeValueAsString(user)))
-                .andExpect(status().isAccepted());
-    }
-
-
-    @Test
-    public void shouldNotUpdateUserIfNotFound() throws Exception {
-        // Arrange
-        String login = "user";
-        User user = User.builder()
-                .login(login)
-                .name("User")
-                .surname("uuser")
-                .dateOfBirth(LocalDate.of(2000, 12, 4))
-                .password(Sha256.hash("useruser"))
-                .email("user@gmail.com")
-                .build();
-        doReturn(Optional.empty()).when(this.userService).find(login);
-        user.setName("updated_user");
-
-        // Act & Assert
-        mvc.perform(MockMvcRequestBuilders.put("/api/users/{login}", login)
-                        .contentType(MediaType.APPLICATION_JSON_VALUE)
-                        .content(objectMapper.writeValueAsString(user)))
                 .andExpect(status().isNotFound());
     }
 }

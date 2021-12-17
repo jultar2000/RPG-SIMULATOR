@@ -25,13 +25,10 @@ public class ChampionController {
 
     private RaceService raceService;
 
-    private UserService userService;
-
     @Autowired
-    public ChampionController(ChampionService championService, RaceService raceService, UserService userService) {
+    public ChampionController(ChampionService championService, RaceService raceService) {
         this.championService = championService;
         this.raceService = raceService;
-        this.userService = userService;
     }
 
     @GetMapping("")

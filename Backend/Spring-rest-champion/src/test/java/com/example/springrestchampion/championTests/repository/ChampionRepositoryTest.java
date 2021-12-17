@@ -31,8 +31,8 @@ public class ChampionRepositoryTest {
     @Test
     @Disabled
     void findChampionByIdAndUser_whenExists_ReturnFoundChampion() {
-        User user = Mockito.mock(User.class);
-        Race race = Mockito.mock(Race.class);
+        User user = new User();
+        Race race = new Race();
 
         Champion champion = Champion.builder()
                 .id(1L)

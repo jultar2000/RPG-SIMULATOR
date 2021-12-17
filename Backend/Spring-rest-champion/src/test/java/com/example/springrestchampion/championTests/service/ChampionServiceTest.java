@@ -28,8 +28,8 @@ public class ChampionServiceTest {
 
     @Test
     void shouldAddChampion() {
-        User user = Mockito.mock(User.class);
-        Race race = Mockito.mock(Race.class);
+        User user = new User();
+        Race race = new Race();
 
         Champion champion = Champion.builder()
                 .id(1L)
@@ -57,8 +57,8 @@ public class ChampionServiceTest {
 
     @Test
     void shouldUpdateChampion() {
-        User user = Mockito.mock(User.class);
-        Race race = Mockito.mock(Race.class);
+        User user = new User();
+        Race race = new Race();
 
         Champion champion = Champion.builder()
                 .id(1L)
@@ -76,11 +76,11 @@ public class ChampionServiceTest {
 
         underTest.update(champion);
 
-        ArgumentCaptor<Champion> userArgumentCaptor =
+        ArgumentCaptor<Champion> championArgumentCaptor =
                 ArgumentCaptor.forClass(Champion.class);
 
-        verify(championRepository).save(userArgumentCaptor.capture());
-        Champion capturedChampion = userArgumentCaptor.getValue();
+        verify(championRepository).save(championArgumentCaptor.capture());
+        Champion capturedChampion = championArgumentCaptor.getValue();
         assertThat(capturedChampion).isEqualTo(champion);
     }
 
@@ -100,7 +100,7 @@ public class ChampionServiceTest {
 
     @Test
     void shouldFindChampionByIdAndUser() {
-        User user = Mockito.mock(User.class);
+        User user = new User();
         long id = 1;
         underTest.find(id, user);
         verify(championRepository).findByIdAndUser(id, user);
@@ -114,7 +114,7 @@ public class ChampionServiceTest {
 
     @Test
     void shouldFindAllChampionsOwnedByUser() {
-        User user = Mockito.mock(User.class);
+        User user = new User();
         underTest.findAll(user);
         verify(championRepository).findAllByUser(user);
     }
