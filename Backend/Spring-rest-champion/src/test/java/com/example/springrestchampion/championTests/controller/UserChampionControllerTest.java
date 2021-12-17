@@ -118,7 +118,7 @@ public class UserChampionControllerTest {
         User user = User.builder()
                 .login(login)
                 .build();
-        
+
         doReturn(Optional.of(user)).when(this.userService).find(login);
         doReturn(Optional.empty()).when(this.championService).find(id, user);
 
