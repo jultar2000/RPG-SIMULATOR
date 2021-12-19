@@ -27,7 +27,7 @@ function displayRaces(races) {
 function createTableRow(race) {
     let tr = document.createElement('tr');
     tr.appendChild(createTextField(race.name));
-    tr.appendChild(createLinkField('view', '../race_view/race_view.html?race=' + race));
+    tr.appendChild(createLinkField('view', '../race_view/race_view.html?race=' + race.name));
     tr.appendChild(createButtonField('delete', () => deleteRace(race)));
     return tr;
 }

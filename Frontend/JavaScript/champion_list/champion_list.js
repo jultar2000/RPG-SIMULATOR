@@ -26,7 +26,7 @@ function displayChampions(champions) {
 function createTableRow(champion) {
     let tr = document.createElement('tr');
     tr.appendChild(createTextField(champion.name));
-    tr.appendChild(createLinkField('view', '../champion_view/champion_view.html?champion=' + champion));
+    tr.appendChild(createLinkField('view', '../champion_view/champion_view.html?champion=' + champion.id));
     tr.appendChild(createButtonField('delete', () => deleteChampion(champion)));
     return tr;
 }

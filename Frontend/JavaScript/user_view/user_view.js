@@ -24,7 +24,6 @@ function fetchAndDisplayChampions() {
 }
 
 function displayChampions(champions) {
-    console.log(champions);
     let tableBody = document.getElementById('tableBody');
     clearElementChildren(tableBody);
     champions.champions.forEach(champion => {
@@ -37,11 +36,11 @@ function createTableRow(champion) {
     tr.appendChild(createTextField(champion.name));
     tr.appendChild(createLinkField('edit', '../champion_edit/champion_edit.html?user='
         + getParameterByName('user') + '&character=' + champion.id));
-    tr.appendChild(createButtonField('delete', () => deleteCharacter(champion.id)));
+    tr.appendChild(createButtonField('delete', () => deleteChampion(champion.id)));
     return tr;
 }
 
-function deleteCharacter(champion) {
+function deleteChampion(champion) {
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 202) {
@@ -49,7 +48,8 @@ function deleteCharacter(champion) {
         }
     };
     xhttp.open("DELETE", 'http://localhost:8080/api/users/' + getParameterByName('user')
-        + '/champions/' + champion.id, true);
+        + '/champions/' + champion, true);
+
     xhttp.send();
 }
 
@@ -65,7 +65,7 @@ function fetchAndDisplayUser() {
 }
 
 function displayUser(user) {
-    setTextNode('username', user.login);
+    setTextNode('login', user.login);
     setTextNode('name', user.name);
     setTextNode('surname', user.surname);
 }

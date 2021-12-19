@@ -51,27 +51,27 @@ public class DataInitializer {
 
         Race bard = Race.builder()
                 .name("bard")
-                .description("A mysterious travelers known for their healing abilities")
+                .description("A mysterious travelers known for their healing abilities.")
                 .build();
 
         Race sorcerer = Race.builder()
                 .name("sorcerer")
-                .description("Smart and intelligent people who were able to master magic skills")
+                .description("Smart and intelligent people who were able to master magic skills.")
                 .build();
 
         Race elf = Race.builder()
                 .name("elf")
-                .description("An ancient human-like race known for their longevity and archery skills")
+                .description("An ancient human-like race known for their longevity and archery skills.")
                 .build();
 
         Race troll = Race.builder()
                 .name("troll")
-                .description("Ugly creatures known for their strength and stamina")
+                .description("Ugly creatures known for their strength and stamina.")
                 .build();
 
         Race dwarf = Race.builder()
                 .name("dwarf")
-                .description("Human-like race known for their small height and spitefulness")
+                .description("Human-like race known for their small height and spitefulness.")
                 .build();
 
         raceService.add(bard);
@@ -88,7 +88,7 @@ public class DataInitializer {
                 .inteligence(8)
                 .healthPoints(700L)
                 .manaPoints(700L)
-                .backstory("A man from planet Armos who came to the earth to spread music folklore and help citizens")
+                .backstory("A man from planet Armos who came to the earth to spread music folklore and help citizens.")
                 .race(bard)
                 .user(elizabeth)
                 .build();
@@ -101,7 +101,7 @@ public class DataInitializer {
                 .inteligence(12)
                 .healthPoints(700L)
                 .manaPoints(600L)
-                .backstory("Young talented man who was banished from the academy for dealing with black magic")
+                .backstory("Young talented man who was banished from the academy for dealing with black magic.")
                 .race(sorcerer)
                 .user(adam)
                 .build();
@@ -115,7 +115,7 @@ public class DataInitializer {
                 .healthPoints(750L)
                 .manaPoints(400L)
                 .backstory("Great archer who left his village to seek revenge after his comrades " +
-                            "were slaughtered by humans")
+                            "were slaughtered by humans.")
                 .race(elf)
                 .user(alex)
                 .build();
@@ -141,7 +141,7 @@ public class DataInitializer {
                 .inteligence(4)
                 .healthPoints(1100L)
                 .manaPoints(300L)
-                .backstory("Leader of the biggest gang in the capitol of the northern country")
+                .backstory("Leader of the biggest gang in the capitol of the northern country.")
                 .race(dwarf)
                 .user(mark)
                 .build();

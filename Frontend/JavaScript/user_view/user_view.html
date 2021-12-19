@@ -2,13 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>UserView</title>
     <link rel="stylesheet" href="../styles.css"/>
     <script src="../script.js" defer="defer"></script>
     <script type="module" src="user_view.js" defer="defer"></script>
 </head>
 <body>
-
 <div class ="main-container">
     <header class="header">
         <h1>User Details</h1>
@@ -21,14 +19,14 @@
             <li><a href="../race_list/race_list.html">Races</a></li>
         </ul>
     </nav>
-
     <section class="main-section">
         <article class="text--justified">
-            <header><h2 id="username:">User Details:</h2></header>
+            <header><h2>User: <b id="login">login</b></h2></header>
             <section>
                 <div class="details-grid">
-                    <label for="name">Name:</label><span id="name">name</span>
-                    <label for="surname">Surname:</label><span id="surname">surname</span>
+                    <label for="name">Name: </label><span id="name"></span>
+                    <br>
+                    <label for="surname">Surname: </label><span id="surname"></span>
                 </div>
             </section>
             <section>
@@ -37,7 +35,7 @@
                     <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Details</th>
+                        <th>Edit</th>
                         <th>Delete</th>
                     </tr>
                     </thead>

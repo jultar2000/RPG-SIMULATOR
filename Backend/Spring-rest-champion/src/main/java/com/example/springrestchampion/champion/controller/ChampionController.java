@@ -8,7 +8,6 @@ import com.example.springrestchampion.champion.dto.CreateChampionRequest;
 import com.example.springrestchampion.champion.dto.GetChampionResponse;
 import com.example.springrestchampion.champion.dto.GetChampionsResponse;
 import com.example.springrestchampion.champion.dto.UpdateChampionRequest;
-import com.example.springrestchampion.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

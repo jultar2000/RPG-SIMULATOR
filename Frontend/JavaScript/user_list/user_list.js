@@ -26,7 +26,7 @@ function displayUsers(users) {
 function createTableRow(user) {
     let tr = document.createElement('tr');
     tr.appendChild(createTextField(user.login));
-    tr.appendChild(createLinkField('view', '../user_view/user_view.html?user=' + user));
+    tr.appendChild(createLinkField('view', '../user_view/user_view.html?user=' + user.login));
     tr.appendChild(createButtonField('delete', () => deleteUser(user)));
     return tr;
 }

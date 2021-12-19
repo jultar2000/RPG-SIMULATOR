@@ -2,9 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="../styles.css"/>
+    <link rel="stylesheet" href="champion_edit.css"/>
+    <script src="../script.js" defer="defer"></script>
+    <script type="module" src="champion_edit.js" defer="defer"></script>
 </head>
 <body>
+<div class ="main-container">
+    <header class="header">
+        <h1>User Details</h1>
+    </header>
+    <nav class="navigation-buttons">
+        <ul>
+            <li><a href="../home.html">Home</a> </li>
+            <li><a href="../user_list/user_list.html">Users</a></li>
+            <li><a href="../champion_list/champion_list.html">Champions</a></li>
+            <li><a href="../race_list/race_list.html">Races</a></li>
+        </ul>
+    </nav>
 
+    <section class="main-section">
+        <article class="text--justified">
+            <header><h2>Edit Champion</h2></header>
+            <form class="champion-data" id="infoForm">
+                <label for="name">Name:</label>
+                <input class="ui-control ui-input" id="name" name="name"/>
+                <br>
+                <br>
+                <label for="race">Race:</label>
+                <input class="ui-control ui-input" id="race" name="race" />
+                <br>
+                <br>
+                <label for="backstory">Backstory:</label>
+                <textarea class="ui-control" id="backstory" name="backstory"></textarea>
+                <input class="ui-control ui-button" type="submit" name="Update"/>
+            </form>
+        </article>
+    </section>
+</div>
 </body>
 </html>
