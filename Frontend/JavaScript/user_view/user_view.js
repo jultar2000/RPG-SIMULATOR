@@ -35,8 +35,8 @@ function createTableRow(champion) {
     let tr = document.createElement('tr');
     tr.appendChild(createTextField(champion.name));
     tr.appendChild(createLinkField('edit', '../champion_edit/champion_edit.html?user='
-        + getParameterByName('user') + '&character=' + champion.id));
-    tr.appendChild(createButtonField('delete', () => deleteChampion(champion.id)));
+        + getParameterByName('user') + '&champion=' + champion.id));
+    tr.appendChild(createButtonField('delete', () => deleteChampion(champion)));
     return tr;
 }
 
@@ -48,7 +48,7 @@ function deleteChampion(champion) {
         }
     };
     xhttp.open("DELETE", 'http://localhost:8080/api/users/' + getParameterByName('user')
-        + '/champions/' + champion, true);
+        + '/champions/' + champion.id, true);
 
     xhttp.send();
 }
