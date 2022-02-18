@@ -79,7 +79,7 @@ public class UserChampionControllerTest {
 
         Champion champion = Champion.builder()
                 .id(id)
-                .user(user)
+                .championUser(user)
                 .build();
 
         doReturn(Optional.of(user)).when(this.userService).find(login);
@@ -100,7 +100,7 @@ public class UserChampionControllerTest {
 
         Champion champion = Champion.builder()
                 .id(id)
-                .user(user)
+                .championUser(user)
                 .build();
 
         doReturn(Optional.empty()).when(this.userService).find(login);
@@ -225,7 +225,7 @@ public class UserChampionControllerTest {
 
         Champion champion = Champion.builder()
                 .id(id)
-                .user(user)
+                .championUser(user)
                 .build();
 
         UpdateChampionRequest championRequest = UpdateChampionRequest.builder()
@@ -259,7 +259,7 @@ public class UserChampionControllerTest {
 
         Champion champion = Champion.builder()
                 .id(id)
-                .user(user)
+                .championUser(user)
                 .build();
 
         UpdateChampionRequest championRequest = UpdateChampionRequest.builder()
@@ -322,7 +322,7 @@ public class UserChampionControllerTest {
 
         Champion champion = Champion.builder()
                 .id(id)
-                .user(user)
+                .championUser(user)
                 .build();
 
         doReturn(Optional.of(user)).when(this.userService).find(login);
@@ -343,7 +343,7 @@ public class UserChampionControllerTest {
 
         Champion champion = Champion.builder()
                 .id(id)
-                .user(user)
+                .championUser(user)
                 .build();
 
         doReturn(Optional.empty()).when(this.userService).find(login);

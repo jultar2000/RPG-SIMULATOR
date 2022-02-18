@@ -37,7 +37,7 @@ public class CreateChampionRequest {
                 .strength(request.getStrength())
                 .inteligence(request.getInteligence())
                 .race(race)
-                .user(user)
+                .championUser(user)
                 .build();
     }
 }

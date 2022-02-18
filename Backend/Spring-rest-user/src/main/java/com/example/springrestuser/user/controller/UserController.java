@@ -1,6 +1,5 @@
 package com.example.springrestuser.user.controller;
 
-
 import com.example.springrestuser.user.dto.CreateUserRequest;
 import com.example.springrestuser.user.dto.GetUserResponse;
 import com.example.springrestuser.user.dto.GetUsersResponse;

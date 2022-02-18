@@ -27,9 +27,4 @@ public class Race {
     @ToString.Exclude
     @JsonIgnore
     List<Champion> champions;
-
-
-
-
-
 }

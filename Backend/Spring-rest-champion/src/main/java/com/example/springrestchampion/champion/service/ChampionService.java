@@ -41,7 +41,7 @@ public class ChampionService {
     }
 
     public Optional<Champion> find(Long id, User user){
-        return championRepository.findByIdAndUser(id, user);
+        return championRepository.findByIdAndChampionUser(id, user);
     }
 
     public List<Champion> findAll(){
@@ -49,6 +49,6 @@ public class ChampionService {
     }
 
     public List<Champion> findAll(User user){
-        return championRepository.findAllByUser(user);
+        return championRepository.findAllByChampionUser(user);
     }
 }

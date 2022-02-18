@@ -24,7 +24,7 @@ GET http://localhost:8082/api/races/bard
 
 ###
 
-POST http://localhost:8082/api/users/adam/champions
+POST http://localhost:8082/api/users/norman/champions
 Content-Type: application/json
 
 {

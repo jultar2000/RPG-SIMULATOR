@@ -90,7 +90,7 @@ public class DataInitializer {
                 .manaPoints(700L)
                 .backstory("A man from planet Armos who came to the earth to spread music folklore and help citizens.")
                 .race(bard)
-                .user(elizabeth)
+                .championUser(elizabeth)
                 .build();
 
         Champion aurelion = Champion.builder()
@@ -103,7 +103,7 @@ public class DataInitializer {
                 .manaPoints(600L)
                 .backstory("Young talented man who was banished from the academy for dealing with black magic.")
                 .race(sorcerer)
-                .user(adam)
+                .championUser(adam)
                 .build();
 
         Champion lores = Champion.builder()
@@ -117,7 +117,7 @@ public class DataInitializer {
                 .backstory("Great archer who left his village to seek revenge after his comrades " +
                             "were slaughtered by humans.")
                 .race(elf)
-                .user(alex)
+                .championUser(alex)
                 .build();
 
         Champion hamrok = Champion.builder()
@@ -130,7 +130,7 @@ public class DataInitializer {
                 .manaPoints(50L)
                 .backstory("Troll who just awaken after hibernating in his cave for a decade and he's hungry!")
                 .race(troll)
-                .user(mark)
+                .championUser(mark)
                 .build();
 
         Champion kager = Champion.builder()
@@ -143,7 +143,7 @@ public class DataInitializer {
                 .manaPoints(300L)
                 .backstory("Leader of the biggest gang in the capitol of the northern country.")
                 .race(dwarf)
-                .user(mark)
+                .championUser(mark)
                 .build();
 
         championService.add(arcus);

@@ -9,8 +9,8 @@ public class Sha256 {
     @SneakyThrows
     public static String hash(String string) {
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        byte[] encodedhash = digest.digest(string.getBytes(StandardCharsets.UTF_8));
-        return bytesToHex(encodedhash);
+        byte[] encodedHash = digest.digest(string.getBytes(StandardCharsets.UTF_8));
+        return bytesToHex(encodedHash);
     }
 
     private static String bytesToHex(byte[] hash) {
@@ -24,6 +24,4 @@ public class Sha256 {
         }
         return hexString.toString();
     }
-
-
 }

@@ -50,7 +50,6 @@ public class Champion {
     private Race race;
 
     @ManyToOne
-    @JoinColumn(name = "user")
-    private User user;
-
+    @JoinColumn(name = "championUser")
+    private User championUser;
 }

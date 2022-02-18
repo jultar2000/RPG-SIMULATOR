@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../styles.css"/>
+    <link rel="stylesheet" href="champion_edit.css"/>
+    <script src="../script.js" defer="defer"></script>
+    <script type="module" src="champion_edit.js" defer="defer"></script>
+</head>
+<body>
+<div class ="main-container">
+    <header class="header">
+        <h1>Champion Edit</h1>
+    </header>
+    <nav class="navigation-buttons">
+        <ul>
+            <li><a href="../home.html">Home</a> </li>
+            <li><a href="../user_list/user_list.html">Users</a></li>
+            <li><a href="../champion_list/champion_list.html">Champions</a></li>
+            <li><a href="../race_list/race_list.html">Races</a></li>
+        </ul>
+    </nav>
+
+    <section class="main-section">
+        <article class="text--justified">
+            <header><h2>Edit Champion</h2></header>
+            <form class="champion-data" id="infoForm">
+                <label for="name">Name:</label>
+                <input class="ui-control ui-input" id="name" name="name"/>
+                <br>
+                <label for="backstory">Backstory:</label>
+                <textarea class="ui-control" id="backstory" name="backstory"></textarea>
+                <br>
+                <input class="ui-control ui-button" type="submit" name="update"/>
+            </form>
+        </article>
+    </section>
+</div>
+</body>
+</html>

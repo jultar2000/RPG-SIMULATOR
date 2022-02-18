@@ -42,7 +42,7 @@ public class ChampionServiceTest {
                 .strength(10)
                 .level(1)
                 .race(race)
-                .user(user)
+                .championUser(user)
                 .build();
 
         underTest.add(champion);
@@ -71,7 +71,7 @@ public class ChampionServiceTest {
                 .strength(10)
                 .level(1)
                 .race(race)
-                .user(user)
+                .championUser(user)
                 .build();
 
         underTest.update(champion);
@@ -103,7 +103,7 @@ public class ChampionServiceTest {
         User user = new User();
         long id = 1;
         underTest.find(id, user);
-        verify(championRepository).findByIdAndUser(id, user);
+        verify(championRepository).findByIdAndChampionUser(id, user);
     }
 
     @Test
@@ -116,6 +116,6 @@ public class ChampionServiceTest {
     void shouldFindAllChampionsOwnedByUser() {
         User user = new User();
         underTest.findAll(user);
-        verify(championRepository).findAllByUser(user);
+        verify(championRepository).findAllByChampionUser(user);
     }
 }

@@ -61,7 +61,7 @@ public class ChampionControllerTest {
                 .inteligence(10)
                 .strength(10)
                 .level(1)
-                .user(user)
+                .championUser(user)
                 .race(race)
                 .build();
         doReturn(Optional.of(champion)).when(this.championService).find(id);
@@ -142,7 +142,7 @@ public class ChampionControllerTest {
                 .inteligence(10)
                 .strength(10)
                 .level(1)
-                .user(user)
+                .championUser(user)
                 .race(race)
                 .build();
 
@@ -203,7 +203,7 @@ public class ChampionControllerTest {
                 .inteligence(10)
                 .strength(10)
                 .level(1)
-                .user(user)
+                .championUser(user)
                 .race(race)
                 .build();
 

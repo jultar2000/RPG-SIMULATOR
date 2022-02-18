@@ -5,7 +5,6 @@ import com.example.springrestuser.user.entity.User;
 import com.example.springrestuser.user.security.Sha256;
 import com.example.springrestuser.user.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;

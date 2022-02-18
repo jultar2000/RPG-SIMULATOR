@@ -20,7 +20,7 @@ public class UserActionRepository {
     }
 
     public void delete(User user){
-        restTemplate.delete("/users/{login}",user.getLogin());
+        restTemplate.delete("/users/{login}", user.getLogin());
     }
 
     public void add(User user){

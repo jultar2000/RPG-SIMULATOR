@@ -5,6 +5,7 @@ import com.example.springrestuser.user.security.Sha256;
 import com.example.springrestuser.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDate;

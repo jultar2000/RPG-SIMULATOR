@@ -12,8 +12,8 @@ import java.util.Optional;
 @Repository
 public interface ChampionRepository extends JpaRepository<Champion, Long> {
 
-    List<Champion> findAllByUser(User user);
+    List<Champion> findAllByChampionUser(User user);
 
-    Optional<Champion> findByIdAndUser(Long id, User user);
+    Optional<Champion> findByIdAndChampionUser(Long id, User user);
 
 }
