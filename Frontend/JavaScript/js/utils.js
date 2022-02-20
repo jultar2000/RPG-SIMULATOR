@@ -1,3 +1,6 @@
+export function getBackendURL() {
+    return 'http://localhost:8080/api';
+}
 
 export function clearElementChildren(element) {
     while (element.firstChild) {

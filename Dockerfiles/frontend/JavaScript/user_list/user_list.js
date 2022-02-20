@@ -1,4 +1,9 @@
-import {createButtonField, createLinkField, createTextField, clearElementChildren} from '../js/utils.js';
+import {
+    getBackendURL,
+    createButtonField,
+    createLinkField,
+    createTextField,
+    clearElementChildren} from '../js/utils.js';
 
 window.addEventListener('load', () => {
     fetchAndDisplayUsers();
@@ -11,7 +16,7 @@ function fetchAndDisplayUsers() {
             displayUsers(JSON.parse(this.responseText))
         }
     };
-    xhttp.open("GET",'http://localhost:8080/api/users/', true);
+    xhttp.open("GET",getBackendURL() + '/users/', true);
     xhttp.send();
 }
 
@@ -38,6 +43,6 @@ function deleteUser(user) {
             fetchAndDisplayUsers();
         }
     };
-    xhttp.open("DELETE",'http://localhost:8080/api/users/' + user.login, true);
+    xhttp.open("DELETE",getBackendURL() + '/users/' + user.login, true);
     xhttp.send();
 }

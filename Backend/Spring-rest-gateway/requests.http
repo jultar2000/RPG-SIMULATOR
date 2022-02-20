@@ -1,4 +1,4 @@
-GET http://localhost:8082/api/races
+GET http://localhost:8080/api/races
 
 ###
 
@@ -22,7 +22,7 @@ GET http://localhost:8080/api/users/adam
 
 ###
 
-GET http://localhost:8080/api/users/alex/champions
+GET http://localhost:8080/api/users/norman/champions
 
 ###
 
@@ -54,7 +54,7 @@ Content-Type: application/json
   "healthPoints": "900",
   "strength": "5",
   "inteligence": "14",
-  "race": "bard"
+  "race": "troll"
 }
 
 ###
@@ -63,7 +63,7 @@ POST http://localhost:8080/api/races
 Content-Type: application/json
 
 {
-"name": "ork",
+"name": "troll",
 "description": "Big angry creatures who are destroying everything on their way"
 }
 

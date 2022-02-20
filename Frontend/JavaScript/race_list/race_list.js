@@ -1,4 +1,9 @@
-import {createButtonField, createLinkField, createTextField, clearElementChildren} from '../js/utils.js';
+import {
+    getBackendURL,
+    createButtonField,
+    createLinkField,
+    createTextField,
+    clearElementChildren} from '../js/utils.js';
 
 window.addEventListener('load', () => {
     fetchAndDisplayRaces();
@@ -39,6 +44,6 @@ function deleteRace(race) {
             fetchAndDisplayRaces();
         }
     };
-    xhttp.open("DELETE",'http://localhost:8080/api/races/' + race.name, true);
+    xhttp.open("DELETE",getBackendURL() + '/races/' + race.name, true);
     xhttp.send();
 }

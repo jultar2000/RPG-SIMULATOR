@@ -4,8 +4,6 @@ services:
   champion-db:
     image: 'postgres'
     container_name: champion-db
-    ports:
-      - '5432:5432'
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
@@ -15,8 +13,6 @@ services:
   user-db:
     image: 'postgres'
     container_name: user-db
-    ports:
-      - '5433:5433'
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
@@ -42,6 +38,7 @@ services:
     ports:
       - '8081:8081'
     depends_on:
+      - rest-champion-app
       - user-db
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://user-db:5432/rest_user_db
@@ -49,11 +46,18 @@ services:
       - SPRING_DATASOURCE_PASSWORD=password
     networks:
       - network
-  rest-gataway-app:
+  rest-gateway-app:
     build: ./Dockerfiles/rest-gateway
     container_name: rest-gateway-app
     ports:
       - '8080:8080'
+    networks:
+      - network
+  fronted:
+    build: ./Dockerfiles/frontend
+    container_name: frontend
+    ports:
+      - '8083:8083'
     networks:
       - network
 networks:

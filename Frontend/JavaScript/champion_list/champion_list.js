@@ -1,4 +1,9 @@
-import {createButtonField, createLinkField, createTextField, clearElementChildren} from '../js/utils.js';
+import {
+    getBackendURL,
+    createButtonField,
+    createLinkField,
+    createTextField,
+    clearElementChildren} from '../js/utils.js';
 
 window.addEventListener('load', () => {
     fetchAndDisplayChampions();
@@ -11,7 +16,7 @@ function fetchAndDisplayChampions() {
             displayChampions(JSON.parse(this.responseText))
         }
     };
-    xhttp.open("GET",'http://localhost:8080/api/champions/', true);
+    xhttp.open("GET",getBackendURL() + '/champions/', true);
     xhttp.send();
 }
 
@@ -38,6 +43,6 @@ function deleteChampion(champion) {
             fetchAndDisplayChampions();
         }
     };
-    xhttp.open("DELETE",'http://localhost:8080/api/champions/' + champion.id, true);
+    xhttp.open("DELETE",getBackendURL() + '/champions/' + champion.id, true);
     xhttp.send();
 }

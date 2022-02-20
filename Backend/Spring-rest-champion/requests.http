@@ -49,7 +49,7 @@ Content-Type: application/json
   "healthPoints": "900",
   "strength": "5",
   "inteligence": "14",
-  "race": "bard"
+  "race": "ork"
 }
 
 ###
@@ -90,7 +90,7 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:8082/api/races/bard
+PUT http://localhost:8082/api/races/ork
 Content-Type: application/json
 
 {

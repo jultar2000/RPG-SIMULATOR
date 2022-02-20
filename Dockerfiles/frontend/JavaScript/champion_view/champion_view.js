@@ -1,4 +1,5 @@
 import {
+    getBackendURL,
     getParameterByName,
     setTextNode
 } from '../js/utils.js';
@@ -14,7 +15,7 @@ function fetchAndDisplayChampionParameters() {
             displayChampionParameters(JSON.parse(this.responseText))
         }
     };
-    xhttp.open("GET", 'http://localhost:8080/api/champions/' + getParameterByName('champion'), true);
+    xhttp.open("GET", getBackendURL() + '/champions/' + getParameterByName('champion'), true);
     xhttp.send();
 }
 

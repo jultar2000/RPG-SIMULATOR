@@ -1,4 +1,6 @@
-import {getParameterByName} from '../js/utils.js';
+import {
+    getBackendURL,
+    getParameterByName} from '../js/utils.js';
 
 window.addEventListener('load', () => {
     const infoForm = document.getElementById('infoForm');
@@ -21,7 +23,7 @@ function fetchAndDisplayChampion() {
             }
         }
     };
-    xhttp.open("GET",'http://localhost:8080/api/users/' + getParameterByName('user') + '/champions/'
+    xhttp.open("GET",getBackendURL() + '/users/' + getParameterByName('user') + '/champions/'
         + getParameterByName('champion'), true);
     xhttp.send();
 }
@@ -36,7 +38,7 @@ function updateInfoAction(event) {
         }
     };
 
-    xhttp.open("PUT",'http://localhost:8080/api/users/' + getParameterByName('user') + '/champions/'
+    xhttp.open("PUT",getBackendURL() + '/users/' + getParameterByName('user') + '/champions/'
         + getParameterByName('champion'), true);
 
     const request = {

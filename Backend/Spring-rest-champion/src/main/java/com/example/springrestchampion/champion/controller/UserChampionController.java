@@ -69,7 +69,8 @@ public class UserChampionController {
         if (race.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        CreateChampionRequest.dtoToEntityMapper(request, race.get(), user.get());
+        Champion champion = CreateChampionRequest.dtoToEntityMapper(request, race.get(), user.get());
+        championService.add(champion);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 

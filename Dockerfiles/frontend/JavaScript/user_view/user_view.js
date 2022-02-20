@@ -1,4 +1,5 @@
 import {
+    getBackendURL,
     getParameterByName,
     clearElementChildren,
     createLinkField,
@@ -19,7 +20,7 @@ function fetchAndDisplayChampions() {
             displayChampions(JSON.parse(this.responseText))
         }
     };
-    xhttp.open("GET",'http://localhost:8080/api/users/' + getParameterByName('user') + '/champions', true);
+    xhttp.open("GET",getBackendURL() + '/users/' + getParameterByName('user') + '/champions', true);
     xhttp.send();
 }
 
@@ -47,7 +48,7 @@ function deleteChampion(champion) {
             fetchAndDisplayChampions();
         }
     };
-    xhttp.open("DELETE", 'http://localhost:8080/api/users/' + getParameterByName('user')
+    xhttp.open("DELETE", getBackendURL() + '/users/' + getParameterByName('user')
         + '/champions/' + champion.id, true);
 
     xhttp.send();
@@ -60,7 +61,7 @@ function fetchAndDisplayUser() {
             displayUser(JSON.parse(this.responseText))
         }
     };
-    xhttp.open("GET",'http://localhost:8080/api/users/' + getParameterByName('user'), true);
+    xhttp.open("GET",getBackendURL() + '/users/' + getParameterByName('user'), true);
     xhttp.send();
 }
 
