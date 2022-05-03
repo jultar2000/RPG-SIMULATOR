@@ -1,4 +1,4 @@
-# RPG Game
+# RPG SIMULATOR
 
 ## Overview
 Project imitating some simple logic of RPG game using rest-endpoints. \
